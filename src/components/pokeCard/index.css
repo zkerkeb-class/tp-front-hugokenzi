@@ -66,3 +66,21 @@
 .poke-card-header.poke-type-dark { background-color: #705848; }
 .poke-card-header.poke-type-steel { background-color: #B8B8D0; }
 .poke-card-header.poke-type-fairy { background-color: #EE99AC; }
+
+/* LIGHT MODE STYLES */
+.light-mode .poke-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #3498db;
+}
+
+.light-mode .poke-title {
+    color: #2c3e50;
+}
+
+.light-mode .poke-image-background {
+    background-color: #ecf0f1;
+}
+
+.light-mode .poke-stat-row {
+    color: #555;
+}

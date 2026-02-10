@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.create-pokemon {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'VT323', monospace;
+    color: #ccc;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border: 3px solid #999;
+    margin-bottom: 30px;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s;
+}
+
+.btn-back:hover {
+    background-color: #cc5555;
+    opacity: 0.9;
+}
+
+.btn-back:active {
+    opacity: 0.7;
+}
+
+.form-container {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #ffcb05;
+    padding: 40px;
+    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.5), 0 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h1 {
+    margin: 0 0 30px 0;
+    color: #ffcb05;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.form-section {
+    background: rgba(30, 30, 30, 0.8);
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 2px solid #ffcb05;
+    border-left: 4px solid #ffcb05;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-section h2 {
+    margin: 0 0 20px 0;
+    color: #ffcb05;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'VT323', monospace;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #ffcb05;
+    margin-bottom: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffcb05;
+    background: rgba(0, 0, 0, 0.3);
+    color: #ccc;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 203, 5, 0.4);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ffcb05;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 203, 5, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.types-selector {
+    margin-top: 15px;
+}
+
+.types-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.type-select-btn {
+    padding: 8px 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.type-select-btn.active {
+    border-color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.type-select-btn:hover {
+    border-color: white;
+}
+
+.selected-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 40px;
+}
+
+.no-types-selected {
+    color: #999;
+    font-family: 'VT323', monospace;
+    margin: 0;
+}
+
+.selected-types .type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.remove-type-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    transition: all 0.2s;
+}
+
+.remove-type-btn:hover {
+    opacity: 0.7;
+}
+
+.type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+}
+
+.type-grass { background-color: #78C850; }
+.type-poison { background-color: #A040A0; }
+.type-fire { background-color: #F08030; }
+.type-water { background-color: #6890F0; }
+.type-normal { background-color: #A8A878; }
+.type-flying { background-color: #A890F0; }
+.type-electric { background-color: #F8D030; color: #333; }
+.type-bug { background-color: #A8B820; }
+.type-ground { background-color: #E0C068; color: #333; }
+.type-rock { background-color: #B8A038; }
+.type-ghost { background-color: #705898; }
+.type-ice { background-color: #98D8D8; color: #333; }
+.type-dragon { background-color: #7038F8; }
+.type-dark { background-color: #705848; }
+.type-steel { background-color: #B8B8D0; color: #333; }
+.type-fairy { background-color: #EE99AC; }
+.type-psychic { background-color: #F85888; }
+
+.image-preview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border: 3px solid #ffcb05;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.5), 0 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.stats-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .stats-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    flex: 1;
+    padding: 15px 24px;
+    background-color: #28a745;
+    color: white;
+    border: 3px solid #999;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: #219c3f;
+    opacity: 0.9;
+}
+
+.btn-submit:active:not(:disabled) {
+    opacity: 0.7;
+}
+
+.btn-submit:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-cancel-link {
+    flex: 1;
+    padding: 15px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border: 3px solid #999;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cancel-link:hover {
+    background-color: #cc5555;
+    opacity: 0.9;
+}
+
+.btn-cancel-link:active {
+    opacity: 0.7;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid #ffcb05;
+    padding: 40px;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.modal-content h2 {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    color: #ffcb05;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.modal-content p {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #ddd;
+    margin: 10px 0;
+}
+
+.confirm-details {
+    background: rgba(255, 203, 5, 0.1);
+    border: 2px solid #ffcb05;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.confirm-details p {
+    margin: 8px 0;
+    color: #ffcb05;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-confirm {
+    flex: 1;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: 3px solid #999;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s;
+}
+
+.btn-confirm:hover:not(:disabled) {
+    background-color: #20c997;
+    opacity: 0.9;
+}
+
+.btn-confirm:active:not(:disabled) {
+    opacity: 0.7;
+}
+
+.btn-confirm:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.modal-buttons .btn-cancel {
+    flex: 1;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    border: 3px solid #999;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s;
+}
+
+.modal-buttons .btn-cancel:hover {
+    background-color: #cc5555;
+    opacity: 0.9;
+}
+
+.modal-buttons .btn-cancel:active {
+    opacity: 0.7;
+}
