@@ -161,8 +161,124 @@ const PokemonDetails = () => {
             )}
 
             <div className="pokemon-container">
-                <div className="pokemon-image-section">
-                    <img src={pokemon.image} alt={pokemon.name.english} className="pokemon-image" />
+                <div className="pokemon-left-column">
+                    <div className="pokemon-image-section">
+                        <img src={pokemon.image} alt={pokemon.name.english} className="pokemon-image" />
+                    </div>
+                    
+                    {pokemon.base && (() => {
+                        const mainColor = typeColors[pokemon.type[0]?.toLowerCase()] || '#ffcb05';
+                        const statLabels = ['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spd'];
+                        const statKeys = ['HP', 'Attack', 'Defense', 'SpecialAttack', 'SpecialDefense', 'Speed'];
+                        const maxStat = 255;
+                        const cx = 140, cy = 130, r = 85;
+                        const angleStep = (2 * Math.PI) / 6;
+                        const startAngle = -Math.PI / 2;
+
+                        const getPoint = (index, value) => {
+                            const angle = startAngle + index * angleStep;
+                            const ratio = value / maxStat;
+                            return {
+                                x: cx + r * ratio * Math.cos(angle),
+                                y: cy + r * ratio * Math.sin(angle)
+                            };
+                        };
+
+                        const getLabelPoint = (index) => {
+                            const angle = startAngle + index * angleStep;
+                            return {
+                                x: cx + (r + 22) * Math.cos(angle),
+                                y: cy + (r + 22) * Math.sin(angle)
+                            };
+                        };
+
+                        const gridLevels = [0.25, 0.5, 0.75, 1];
+                        const statPoints = statKeys.map((key, i) => getPoint(i, pokemon.base[key] || 0));
+                        const polygonStr = statPoints.map(p => `${p.x},${p.y}`).join(' ');
+
+                        return (
+                            <div className="radar-chart-box">
+                                <label className="radar-chart-title">Statistiques</label>
+                                <div className="radar-chart-container">
+                                    <svg viewBox="0 0 280 280" className="radar-chart">
+                                    {gridLevels.map((level, li) => (
+                                        <polygon
+                                            key={li}
+                                            points={Array.from({ length: 6 }, (_, i) => {
+                                                const angle = startAngle + i * angleStep;
+                                                const x = cx + r * level * Math.cos(angle);
+                                                const y = cy + r * level * Math.sin(angle);
+                                                return `${x},${y}`;
+                                            }).join(' ')}
+                                            fill="none"
+                                            stroke="rgba(255,255,255,0.15)"
+                                            strokeWidth="1"
+                                        />
+                                    ))}
+                                    {Array.from({ length: 6 }, (_, i) => {
+                                        const angle = startAngle + i * angleStep;
+                                        return (
+                                            <line
+                                                key={i}
+                                                x1={cx}
+                                                y1={cy}
+                                                x2={cx + r * Math.cos(angle)}
+                                                y2={cy + r * Math.sin(angle)}
+                                                stroke="rgba(255,255,255,0.1)"
+                                                strokeWidth="1"
+                                            />
+                                        );
+                                    })}
+                                    <polygon
+                                        points={polygonStr}
+                                        fill={`${mainColor}55`}
+                                        stroke={mainColor}
+                                        strokeWidth="2.5"
+                                        className="radar-polygon"
+                                    />
+                                    {statPoints.map((p, i) => (
+                                        <circle key={i} cx={p.x} cy={p.y} r="4" fill={mainColor} />
+                                    ))}
+                                    {statLabels.map((label, i) => {
+                                        const lp = getLabelPoint(i);
+                                        return (
+                                            <text
+                                                key={i}
+                                                x={lp.x}
+                                                y={lp.y}
+                                                textAnchor="middle"
+                                                dominantBaseline="central"
+                                                fill="#ffcb05"
+                                                fontSize="13"
+                                                fontFamily="VT323, monospace"
+                                            >
+                                                {label}
+                                            </text>
+                                        );
+                                    })}
+                                    {statKeys.map((key, i) => {
+                                        const val = pokemon.base[key] || 0;
+                                        const lp = getLabelPoint(i);
+                                        return (
+                                            <text
+                                                key={`v-${i}`}
+                                                x={lp.x}
+                                                y={lp.y + 14}
+                                                textAnchor="middle"
+                                                dominantBaseline="central"
+                                                fill="rgba(255,255,255,0.8)"
+                                                fontSize="11"
+                                                fontFamily="VT323, monospace"
+                                            >
+                                                {val}
+                                            </text>
+                                        );
+                                    })}
+                                </svg>
+                                </div>
+                            </div>
+                        );
+                    })()}
                 </div>
 
                 <div className="pokemon-info-section">

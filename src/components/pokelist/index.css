@@ -86,7 +86,7 @@
 }
 
 /* BOUTONS */
-.search-btn, .clear-btn, .favorites-toggle-btn, .create-btn, .quizz-btn {
+.search-btn, .clear-btn, .favorites-toggle-btn, .create-btn, .quizz-btn, .team-btn {
     font-family: 'VT323', monospace;
     font-size: 1.5rem;
     padding: 8px 20px;
@@ -104,11 +104,11 @@
     align-items: center;
 }
 
-.search-btn:active, .clear-btn:active, .favorites-toggle-btn:active, .create-btn:active, .quizz-btn:active {
+.search-btn:active, .clear-btn:active, .favorites-toggle-btn:active, .create-btn:active, .quizz-btn:active, .team-btn:active {
     opacity: 0.85;
 }
 
-.search-btn:hover, .clear-btn:hover, .favorites-toggle-btn:hover, .create-btn:hover, .quizz-btn:hover {
+.search-btn:hover, .clear-btn:hover, .favorites-toggle-btn:hover, .create-btn:hover, .quizz-btn:hover, .team-btn:hover {
     border-color: #ffcb05;
     box-shadow: 0 0 10px rgba(255, 203, 5, 0.3);
 }
@@ -136,6 +136,12 @@
 
 .quizz-btn {
     background: #2d3d7f;
+    border-color: #555;
+    color: white;
+}
+
+.team-btn {
+    background: #8B4513;
     border-color: #555;
     color: white;
 }

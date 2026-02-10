@@ -373,6 +373,7 @@ const PokeList = () => {
                         ❤️ Favoris ({favorites.length})
                     </button>
                     <Link to="/quizz" className="quizz-btn">🎮 Quizz</Link>
+                    <Link to="/team" className="team-btn">⚔ Équipe</Link>
                     <Link to="/create" className="create-btn">+ Nouveau</Link>
                 </div>
 
