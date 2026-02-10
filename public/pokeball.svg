@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Moitié supérieure rouge -->
+  <rect x="0" y="0" width="200" height="100" fill="#FF0000"/>
+  
+  <!-- Moitié inférieure blanche -->
+  <rect x="0" y="100" width="200" height="100" fill="#FFFFFF"/>
+  
+  <!-- Ceinture noire au milieu -->
+  <rect x="0" y="85" width="200" height="30" fill="#000000"/>
+  
+  <!-- Cercle blanc central -->
+  <circle cx="100" cy="100" r="40" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+  
+  <!-- Cercle noir intérieur -->
+  <circle cx="100" cy="100" r="20" fill="#000000"/>
+</svg>
